@@ -2,6 +2,15 @@ class ProvidersController < ApplicationController
 	before_action :find_provider, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
 
+  def search
+    if params[:search].present?
+      @providers = Provider.search(params[:search])
+    else
+      @providers = Provider.all
+    end
+  end
+
+
 	def index
 		@provider = Provider.all.order("created_at DESC")
 	end
