@@ -1,0 +1,25 @@
+= simple_form_for @provider, HTML: { multipart: true } do |f|
+	- if @provider.errors.any?
+		#errors
+			%p
+				= @provider.errors.count
+				Prevented this provider from saving
+			%ul
+				- @provider.errors.full_messages.each do |msg|
+					%li = msg
+	.panel-body
+		= f.input :name, input_html: {class: 'form-control'}
+		= f.input :npi, input_html: {class: 'form-control'}
+		= f.input :specialty, input_html: {class: 'form-control'}
+		= f.input :image, input_html: {class: 'form-control'}
+
+		.row
+			.col-md-6
+				%h3 Patients
+				#patients
+					= f.simple_fields_for :patients do |patient|
+						= render 'patient_fields', f: patient
+					.links
+						= link_to_add_association 'Add Patient', f, :patients, class: "btn btn-default add-button"
+
+	= f.button :submit, class: "btn btn-primary"

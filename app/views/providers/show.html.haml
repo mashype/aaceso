@@ -1,0 +1,27 @@
+.main-content
+	#provider_top.row
+		.col-md-4
+			=image_tag @provider.image.url(:medium), class: "provider_image"
+		.col-md-8
+			#provider_info
+				%h1= @provider.name
+				%p.description= @provider.specialty
+				%p
+					Loaded By
+					= @provider.user.email
+
+	.row
+		.col-md-6
+			#patients
+				%h2 Patients
+				%ul
+					- @provider.patients.each do |patient|
+						%li= patient.last_name
+
+	.row
+		.col-md-12
+			= link_to "Back", root_path, class: "btn btn-default" 
+			- if user_signed_in?
+				= link_to "Edit", edit_provider_path, class: "btn btn-default" 
+				= link_to "Delete", provider_path, method: :delete, data: { confirm: "Are you sure about that mofo?" }, class: "btn btn-default"			
+
