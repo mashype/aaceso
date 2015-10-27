@@ -1,9 +1,5 @@
-- @provider.each_slice(3) do |providers|
-	.row
-		- providers.each do |provider|
-			.col-md-4
-				.provider	
-					.image_wrapper
-						=link_to provider do
-							= image_tag provider.image.url(:medium)
-						%h2= link_to provider.name, provider
+.row
+  - @providers.each do |provider|
+    .col-sm-6.col-md-3
+      .thumbnail
+        = link_to (image_tag provider.image.url(:medium), class: 'image'), provider

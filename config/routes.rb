@@ -7,5 +7,10 @@ Rails.application.routes.draw do
   	end
   end
 
-  root "providers#index"
+  authenticated :user do
+  	root 'providers#index', as: "authenticated_root"
+  end
+
+  root 'welcome#index'		
+  
 end

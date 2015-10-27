@@ -1,6 +1,7 @@
 class ProvidersController < ApplicationController
 	before_action :find_provider, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
+	
 
   def search
     if params[:search].present?
