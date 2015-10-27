@@ -19,6 +19,14 @@
 						%li= patient.last_name
 
 	.row
+		.col-md-6
+			#patients
+				%h2 Locations
+				%ul
+					- @provider.locations.each do |location|
+						%li= location.street_1
+
+	.row
 		.col-md-12
 			= link_to "Back", root_path, class: "btn btn-default" 
 			- if user_signed_in?

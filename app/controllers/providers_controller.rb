@@ -52,7 +52,8 @@ class ProvidersController < ApplicationController
 	private
 
 		def provider_params
-			params.require(:provider). permit(:name, :npi, :specialty, :image, patients_attributes: [:id, :first_name, :last_name, :member_id, :_destroy])
+			params.require(:provider). permit(:name, :npi, :specialty, :image, patients_attributes: [:id, :first_name, :last_name, :member_id, :_destroy], 
+				locations_attributes: [:id, :street_1, :street_2, :city, :state, :zip, :loc_type, :_destroy])
 		end
 
 		def find_provider

@@ -22,4 +22,13 @@
 					.links
 						= link_to_add_association 'Add Patient', f, :patients, class: "btn btn-default add-button"
 
+		.row
+			.col-md-6
+				%h3 Locations
+				#patients
+					= f.simple_fields_for :locations do |location|
+						= render 'location_fields', f: location
+					.links
+						= link_to_add_association 'Add Location', f, :locations, class: "btn btn-default add-button"
+
 	= f.button :submit, class: "btn btn-primary"
