@@ -1,0 +1,9 @@
+= @patient.first_name
+= @patient.last_name
+= @patient.member_id
+
+
+= link_to "Back", root_path, class: "btn btn-default" 
+- if user_signed_in?
+	= link_to "Edit", edit_patient_path, class: "btn btn-default" 
+	= link_to "Delete", patient_path, method: :delete, data: { confirm: "Are you sure about that mofo?" }, class: "btn btn-default"			

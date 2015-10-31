@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   	end
   end
 
+  resources :patients do
+  end
+
   authenticated :user do
   	root 'providers#index', as: "authenticated_root"
   end

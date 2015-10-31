@@ -1,0 +1,2 @@
+module ProvLocationsHelper
+end
