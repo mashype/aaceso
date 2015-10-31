@@ -1,0 +1,7 @@
+%li.control-group.nested-fields
+  .controls
+    = f.label :expiration_year, "Expires:"
+    = f.text_field :expiration_year
+    = f.fields_for :license do |licexpiration_license|
+      = licexpiration_license.text_field :state
+    = link_to_remove_association "remove", f

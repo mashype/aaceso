@@ -11,7 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027025813) do
+ActiveRecord::Schema.define(version: 20151031203138) do
+
+  create_table "lic_expirations", force: :cascade do |t|
+    t.integer  "provider_id"
+    t.integer  "license_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "expiration_year"
+  end
+
+  add_index "lic_expirations", ["license_id"], name: "index_lic_expirations_on_license_id"
+  add_index "lic_expirations", ["provider_id"], name: "index_lic_expirations_on_provider_id"
+
+  create_table "licenses", force: :cascade do |t|
+    t.string   "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "licexpirations", force: :cascade do |t|
+    t.string   "expiration_year"
+    t.integer  "provider_id"
+    t.integer  "license_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "licexpirations", ["license_id"], name: "index_licexpirations_on_license_id"
+  add_index "licexpirations", ["provider_id"], name: "index_licexpirations_on_provider_id"
 
   create_table "locations", force: :cascade do |t|
     t.string   "street_1"
@@ -19,7 +47,6 @@ ActiveRecord::Schema.define(version: 20151027025813) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.integer  "loc_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "provider_id"
@@ -38,6 +65,36 @@ ActiveRecord::Schema.define(version: 20151027025813) do
 
   add_index "patients", ["provider_id"], name: "index_patients_on_provider_id"
 
+  create_table "plan_statuses", force: :cascade do |t|
+    t.integer  "provider_id"
+    t.integer  "plan_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "accepted"
+  end
+
+  add_index "plan_statuses", ["plan_id"], name: "index_plan_statuses_on_plan_id"
+  add_index "plan_statuses", ["provider_id"], name: "index_plan_statuses_on_provider_id"
+
+  create_table "plans", force: :cascade do |t|
+    t.string   "carrier_name"
+    t.string   "plan_name"
+    t.string   "plan_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "prov_locations", force: :cascade do |t|
+    t.integer  "provider_id"
+    t.integer  "location_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "loc_type"
+  end
+
+  add_index "prov_locations", ["location_id"], name: "index_prov_locations_on_location_id"
+  add_index "prov_locations", ["provider_id"], name: "index_prov_locations_on_provider_id"
+
   create_table "providers", force: :cascade do |t|
     t.string   "name"
     t.string   "npi"
@@ -49,6 +106,12 @@ ActiveRecord::Schema.define(version: 20151027025813) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "provlocations", force: :cascade do |t|
+    t.integer  "location_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|

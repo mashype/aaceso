@@ -31,4 +31,17 @@
 					.links
 						= link_to_add_association 'Add Location', f, :locations, class: "btn btn-default add-button"
 
+		.row
+			.col-md-6
+				%fieldset#provider-licenses
+					%ol
+						= f.simple_fields_for :licexpirations do |licexpiration|
+							= render 'licexpiration_fields', f: licexpiration
+					= link_to_add_association 'add license', f, :licexpirations, 'data-association-insertion-node' => "#provider-licenses ol", 'data-association-insertion-method' => "append", :wrap_object => Proc.new {|licexpiration| licexpiration.build_license; licexpiration }
+
 	= f.button :submit, class: "btn btn-primary"
+
+
+
+
+
