@@ -11,18 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031203138) do
-
-  create_table "lic_expirations", force: :cascade do |t|
-    t.integer  "provider_id"
-    t.integer  "license_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "expiration_year"
-  end
-
-  add_index "lic_expirations", ["license_id"], name: "index_lic_expirations_on_license_id"
-  add_index "lic_expirations", ["provider_id"], name: "index_lic_expirations_on_provider_id"
+ActiveRecord::Schema.define(version: 20151031212840) do
 
   create_table "licenses", force: :cascade do |t|
     t.string   "state"
@@ -84,17 +73,6 @@ ActiveRecord::Schema.define(version: 20151031203138) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "prov_locations", force: :cascade do |t|
-    t.integer  "provider_id"
-    t.integer  "location_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "loc_type"
-  end
-
-  add_index "prov_locations", ["location_id"], name: "index_prov_locations_on_location_id"
-  add_index "prov_locations", ["provider_id"], name: "index_prov_locations_on_provider_id"
-
   create_table "providers", force: :cascade do |t|
     t.string   "name"
     t.string   "npi"
@@ -106,12 +84,21 @@ ActiveRecord::Schema.define(version: 20151031203138) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "specialty_id"
   end
+
+  add_index "providers", ["specialty_id"], name: "index_providers_on_specialty_id"
 
   create_table "provlocations", force: :cascade do |t|
     t.integer  "location_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "specialties", force: :cascade do |t|
+    t.string   "specialty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

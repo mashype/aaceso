@@ -5,7 +5,11 @@
 		.col-md-8
 			#provider_info
 				%h1= @provider.name
-				%p.description= @provider.specialty
+				%p.description= @provider.specialty			
+				%p.description= @provider.specialty_id
+				%ulk
+					- @provider.licexpirations.each do |lic_expiration|
+						%li= lic_expiration.expiration_year
 				%p
 					Loaded By
 					= @provider.user.email

@@ -11,10 +11,11 @@
 		= f.input :name, input_html: {class: 'form-control'}
 		= f.input :npi, input_html: {class: 'form-control'}
 		= f.input :specialty, input_html: {class: 'form-control'}
+		= f.input :specialty_id, input_html: {class: 'form-control'}
 		= f.input :image, input_html: {class: 'form-control'}
 
 		.row
-			.col-md-6
+			.col-md-4
 				%h3 Patients
 				#patients
 					= f.simple_fields_for :patients do |patient|
@@ -22,8 +23,7 @@
 					.links
 						= link_to_add_association 'Add Patient', f, :patients, class: "btn btn-default add-button"
 
-		.row
-			.col-md-6
+			.col-md-4
 				%h3 Locations
 				#patients
 					= f.simple_fields_for :locations do |location|
@@ -31,13 +31,14 @@
 					.links
 						= link_to_add_association 'Add Location', f, :locations, class: "btn btn-default add-button"
 
-		.row
-			.col-md-6
-				%fieldset#provider-licenses
-					%ol
-						= f.simple_fields_for :licexpirations do |licexpiration|
-							= render 'licexpiration_fields', f: licexpiration
-					= link_to_add_association 'add license', f, :licexpirations, 'data-association-insertion-node' => "#provider-licenses ol", 'data-association-insertion-method' => "append", :wrap_object => Proc.new {|licexpiration| licexpiration.build_license; licexpiration }
+			.col-md-4
+				%h3 Licenses
+				#patients
+					%fieldset#provider-licenses
+						%ol
+							= f.simple_fields_for :licexpirations do |licexpiration|
+								= render 'licexpiration_fields', f: licexpiration
+						= link_to_add_association 'add license', f, :licexpirations, 'data-association-insertion-node' => "#provider-licenses ol", 'data-association-insertion-method' => "append", :wrap_object => Proc.new {|licexpiration| licexpiration.build_license; licexpiration }
 
 	= f.button :submit, class: "btn btn-primary"
 

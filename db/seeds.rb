@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-licenses = License.create ([{state: 'AZ'}, {state: 'AR'}, {state: 'CA'}])
+specialties = Specialty.create ([{specialty: 'Internal Medicine'}, {specialty: 'Anesthesia'}, {specialty: 'Pathology'}])
