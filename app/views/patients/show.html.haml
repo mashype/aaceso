@@ -12,6 +12,9 @@
 		.col-md-6
 			#patients
 				%h2 Appointments
+				%ul
+					- @patient.appointments.each do |appointment|
+						%li= link_to appointment.provider.name, appointment
 
 
 		.col-md-6

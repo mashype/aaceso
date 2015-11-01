@@ -34,7 +34,7 @@
 				%h2 Appointments
 				%ul
 					- @provider.appointments.each do |appointment|
-						%li= link_to appointment.patient_id, appointment
+						%li= link_to appointment.patient.last_name, appointment
 
 	.row
 		.col-md-12
