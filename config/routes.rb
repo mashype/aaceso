@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {registrations: 'registrations'}
+  devise_for :users
 
   resources :providers do
   	collection do
@@ -8,18 +8,6 @@ Rails.application.routes.draw do
   end
 
   resources :patients do
-  end
-
-  resources :licenses do
-  end
-
-  resources :appointments do
-  end
-
-  resources :licexpirations do
-  end
-
-  resources :patientrelations do
   end
 
   authenticated :user do
