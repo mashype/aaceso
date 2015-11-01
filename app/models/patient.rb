@@ -1,3 +1,7 @@
 class Patient < ActiveRecord::Base
-	belongs_to :provider
+
+	has_many :patientrelations
+	has_many :providers, through: :patientrelations
+
+	has_many :appointments
 end
