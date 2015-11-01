@@ -3,7 +3,7 @@ class Provider < ActiveRecord::Base
 
 	belongs_to :user
 	
-	has_many :specialties
+	belongs_to :specialty
 
 	has_many :patients
 	accepts_nested_attributes_for :patients, reject_if: :all_blank, allow_destroy: true
