@@ -53,7 +53,7 @@ class ProvidersController < ApplicationController
 
 		def provider_params
 			params.require(:provider). permit(:name, :npi, :specialty, :specialty_id, :image, 
-				patients_attributes: [:id, :first_name, :last_name, :member_id, :_destroy], 
+				patientrelations_attributes: [:id, :provider_id, :patient_id, :relationtype, :_destroy, patient_attributes: [:id, :first_name, :last_name, :member_id, :_destroy]], 
 				locations_attributes: [:id, :street_1, :street_2, :city, :state, :zip, :loc_type, :_destroy], 
 				licexpirations_attributes: [:id, :provider_id, :license_id, :expiration_year, :_destroy, license_attributes: [:id, :state, :_destroy]])
 		end

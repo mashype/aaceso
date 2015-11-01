@@ -1,0 +1,15 @@
+= simple_form_for @patientrelation, HTML: { multipart: true } do |f|
+	- if @patientrelation.errors.any?
+		#errors
+			%p
+				= @patientrelation.errors.count
+				Prevented this relationship from saving
+			%ul
+				- @patientrelation.errors.full_messages.each do |msg|
+					%li = msg
+	.panel-body
+		= f.input :relationtype, input_html: {class: 'form-control'}
+		= f.input :provider_id, input_html: {class: 'form-control'}
+		= f.input :patient_id, input_html: {class: 'form-control'}
+
+	= f.button :submit, class: "btn btn-primary"

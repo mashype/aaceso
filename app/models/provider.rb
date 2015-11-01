@@ -2,10 +2,11 @@ class Provider < ActiveRecord::Base
 	searchkick
 
 	belongs_to :user
-	
 	belongs_to :specialty
 
-	has_many :patients
+	has_many :patientrelations
+	has_many :patients, through: :patientrelations
+	accepts_nested_attributes_for :patientrelations, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :patients, reject_if: :all_blank, allow_destroy: true
 
 	has_many :locations

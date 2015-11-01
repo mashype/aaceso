@@ -16,7 +16,10 @@ Rails.application.routes.draw do
   resources :appointments do
   end
 
-  resources :lic_expirations do
+  resources :licexpirations do
+  end
+
+  resources :patientrelations do
   end
 
   authenticated :user do
