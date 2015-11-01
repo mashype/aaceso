@@ -1,0 +1,17 @@
+= simple_form_for @appointment, HTML: { multipart: true } do |f|
+	- if @appointment.errors.any?
+		#errors
+			%p
+				= @appointment.errors.count
+				Prevented this provider from saving
+			%ul
+				- @appointment.errors.full_messages.each do |msg|
+					%li = msg
+	.panel-body
+		= f.input :appointmenttype, input_html: {class: 'form-control'}
+		= f.input :apptconfirmed, input_html: {class: 'form-control'}
+		= f.input :apptcompleted, input_html: {class: 'form-control'}
+		= f.input :patient_id, input_html: {class: 'form-control'}
+		= f.input :provider_id, input_html: {class: 'form-control'}
+
+	= f.button :submit, class: "btn btn-primary"

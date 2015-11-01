@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :licenses do
   end
 
+  resources :appointments do
+  end
+
   resources :lic_expirations do
   end
 

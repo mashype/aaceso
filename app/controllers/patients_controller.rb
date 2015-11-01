@@ -41,14 +41,10 @@ class PatientsController < ApplicationController
 		redirect_to root_path, notice: "Successfully deleted patient"
 	end
 
-	def full_name
-    "#{first_name} #{last_name}"
-  end
-
 	private
 
 		def patient_params
-			params.require(:patient). permit(:first_name, :last_name, :full_name, :member_id)
+			params.require(:patient). permit(:first_name, :last_name, :member_id)
 		end
 
 		def find_patient
