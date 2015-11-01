@@ -15,7 +15,7 @@
 		= f.input :image, input_html: {class: 'form-control'}
 
 		.row
-			.col-md-4
+			.col-md-12
 				%h3 Patients
 				#patients
 					= f.simple_fields_for :patients do |patient|
@@ -23,7 +23,8 @@
 					.links
 						= link_to_add_association 'Add Patient', f, :patients, class: "btn btn-default add-button"
 
-			.col-md-4
+		.row
+			.col-md-12
 				%h3 Locations
 				#patients
 					= f.simple_fields_for :locations do |location|
@@ -31,7 +32,8 @@
 					.links
 						= link_to_add_association 'Add Location', f, :locations, class: "btn btn-default add-button"
 
-			.col-md-4
+		.row
+			.col-md-
 				%h3 Licenses
 				#patients
 					%fieldset#provider-licenses
