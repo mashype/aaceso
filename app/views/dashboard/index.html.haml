@@ -1,0 +1,7 @@
+-if @user.usertype = '1'
+	= render 'patient'
+-elsif @user.usertype = '2'
+	= render 'provider'
+-else
+	= RENDER 'other'
+	

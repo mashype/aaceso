@@ -11,20 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101172658) do
+ActiveRecord::Schema.define(version: 20151101193142) do
 
   create_table "appointments", force: :cascade do |t|
-    t.integer  "appointmenttype"
     t.boolean  "apptconfirmed"
     t.boolean  "apptcompleted"
     t.integer  "provider_id"
     t.integer  "patient_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "appointmenttype_id"
   end
 
+  add_index "appointments", ["appointmenttype_id"], name: "index_appointments_on_appointmenttype_id"
   add_index "appointments", ["patient_id"], name: "index_appointments_on_patient_id"
   add_index "appointments", ["provider_id"], name: "index_appointments_on_provider_id"
+
+  create_table "appointmenttypes", force: :cascade do |t|
+    t.string   "apptype"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "licenses", force: :cascade do |t|
     t.string   "state"

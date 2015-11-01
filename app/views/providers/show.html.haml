@@ -20,7 +20,7 @@
 				%h2 Patients
 				%ul
 					- @provider.patientrelations.each do |patientrelation|
-						%li= patientrelation.patient.last_name
+						%li= link_to patientrelation.patient.last_name, patientrelation
 
 		.col-md-6
 			#patients

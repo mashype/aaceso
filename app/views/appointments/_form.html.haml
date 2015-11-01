@@ -8,10 +8,10 @@
 				- @appointment.errors.full_messages.each do |msg|
 					%li = msg
 	.panel-body
-		= f.input :appointmenttype, input_html: {class: 'form-control'}
+		= f.association :appointmenttype, label_method: :apptype, value_method: :id, include_blank: false, input_html: {class: 'form-control'}
+		= f.association :provider, label_method: :name, value_method: :id, include_blank: false, input_html: {class: 'form-control'}
+		= f.association :patient, label_method: :last_name, value_method: :id, include_blank: false, input_html: {class: 'form-control'}
 		= f.input :apptconfirmed, input_html: {class: 'form-control'}
 		= f.input :apptcompleted, input_html: {class: 'form-control'}
-		= f.input :patient_id, input_html: {class: 'form-control'}
-		= f.input :provider_id, input_html: {class: 'form-control'}
 
 	= f.button :submit, class: "btn btn-primary"

@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   authenticated :user do
-  	root 'providers#index', as: "authenticated_root"
+  	root 'dashboard#index', as: "authenticated_root"
   end
 
   root 'welcome#index'		

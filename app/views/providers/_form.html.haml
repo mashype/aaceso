@@ -32,7 +32,6 @@
 								= render 'patientrelation_fields', f: patientrelation
 						= link_to_add_association 'Add Patient', f, :patientrelations, class: "btn btn-default add-button", 'data-association-insertion-node' => "#provider-patients ol", 'data-association-insertion-method' => "append", :wrap_object => Proc.new {|patientrelation| patientrelation.build_patient; patientrelation }
 
-
 		.row
 			.col-md-12
 				%h3 Licenses
