@@ -5,8 +5,8 @@
 		.col-md-8
 			#provider_info
 				%p.description= @patientrelation.relationtype
-				%p.description= @patientrelation.provider_id	
-				%p.description= @patientrelation.patient_id				
+				%p.description= @patientrelation.provider.name	
+				%p.description= @patientrelation.patient.last_name			
 
 	.row
 		.col-md-12

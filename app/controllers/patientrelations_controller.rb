@@ -43,7 +43,7 @@ class PatientrelationsController < ApplicationController
 	private
 
 		def patientrelation_params
-			params.require(:patientrelation). permit(:relationtype, :patient_id, :provider_id)
+			params.require(:patientrelation). permit(:relationtype, :patient_id, :provider_id, :patient_attributes [:id, :first_name, :last_name, :member_id])
 		end
 
 		def find_patientrelation

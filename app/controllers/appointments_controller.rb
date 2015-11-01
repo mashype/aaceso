@@ -43,7 +43,7 @@ class AppointmentsController < ApplicationController
 	private
 
 		def appointment_params
-			params.require(:appointment). permit(:appointmenttype, :apptconfirmed, :apptcompleted, :provider_id, :patient_id)
+			params.require(:appointment). permit(:appointmenttype_id, :apptconfirmed, :apptcompleted, :provider_id, :patient_id, appointmenttype_attributes: [:id, :apptype])
 		end
 
 		def find_appointment
