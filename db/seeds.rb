@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-specialties = Specialty.create ([{specialty: 'Internal Medicine'}, {specialty: 'Anesthesia'}, {specialty: 'Pathology'}])
+usertypes = Usertype.create ([{usertypename: 'Provider'}, {usertypename: 'Patient'}, {usertypename: 'Provider Admin'}, {usertypename: 'Master Admin'}])
