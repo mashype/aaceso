@@ -14,15 +14,15 @@
 		.wrapper
 			.callout
 				%i.fa.fa-user-md
-				%h2 Providers
+				%h2= link_to 'Providers', "/welcome/providerhome"
 				%p Tilde master cleanse Pinterest, mustache bitters literally distillery Vice small batch Godard. Tote bag shabby chic authentic aesthetic quinoa tattooed. Organic sriracha polaroid dreamcatcher, jean shorts bicycle rights banjo skateboard DIY fap brunch fingerstache Tumblr. PBR swag ugh four loko.
 			.callout
 				%i.fa.fa-users          
-				%h2 Patients
+				%h2= link_to 'Patients', "/welcome/patienthome"
 				%p Gastropub meh church-key Brooklyn, wayfarers keffiyeh letterpress XOXO aesthetic vegan farm-to-table mixtape vinyl hella. Scenester cardigan vegan fingerstache keytar. Flexitarian tote bag normcore church-key freegan jean shorts Helvetica.
 			.callout
 				%i.fa.fa-hospital-o
-				%h2 Plans
+				%h2= link_to 'Health Plans', "/welcome/healthplanhome"
 				%p Williamsburg Schlitz Carles deep v brunch. Health goth tilde Shoreditch, VHS single-origin coffee pop-up messenger bag Brooklyn Godard four dollar toast squid iPhone pour-over stumptown mixtape. Twee sriracha actually, tattooed Intelligentsia street art Thundercats Marfa wolf chia flannel Kickstarter.
 #bottom_cta
 	.wrapper
@@ -32,3 +32,5 @@
 
 %footer
 	%p &copy; AAceso Health 2015
+
+%td= link_to 'Show', "providers/show"

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {registrations: 'registrations'}
 
+  get 'welcome/patienthome' => 'welcome#patienthome'
+  get 'welcome/providerhome' => 'welcome#providerhome'
+  get 'welcome/healthplanhome' => 'welcome#healthplanhome'
+
   resources :providers do
   	collection do
   		get 'search'
