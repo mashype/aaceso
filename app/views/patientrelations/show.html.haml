@@ -4,7 +4,7 @@
 			HOLD
 		.col-md-8
 			#provider_info
-				%p.description= @patientrelation.relationtype
+				%p.description= @patientrelation.patientrelationtypes_id
 				%p.description= @patientrelation.provider.name	
 				%p.description= @patientrelation.patient.last_name			
 
@@ -14,4 +14,4 @@
 			- if user_signed_in?
 				= link_to "Edit", edit_patientrelation_path, class: "btn btn-default" 
 				= link_to "Delete", patientrelation_path, method: :delete, data: { confirm: "Are you sure about that mofo?" }, class: "btn btn-default"	
-				= link_to "Request Appointment", new_patientrelation_path, class: "btn btn-default" 
+				= link_to "Request Appointment", new_appointment_path, class: "btn btn-default" 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101193142) do
+ActiveRecord::Schema.define(version: 20151101235848) do
 
   create_table "appointments", force: :cascade do |t|
     t.boolean  "apptconfirmed"
@@ -64,15 +64,22 @@ ActiveRecord::Schema.define(version: 20151101193142) do
   add_index "locations", ["provider_id"], name: "index_locations_on_provider_id"
 
   create_table "patientrelations", force: :cascade do |t|
-    t.integer  "relationtype"
     t.integer  "provider_id"
     t.integer  "patient_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "patientrelationtypes_id"
   end
 
   add_index "patientrelations", ["patient_id"], name: "index_patientrelations_on_patient_id"
+  add_index "patientrelations", ["patientrelationtypes_id"], name: "index_patientrelations_on_patientrelationtypes_id"
   add_index "patientrelations", ["provider_id"], name: "index_patientrelations_on_provider_id"
+
+  create_table "patientrelationtypes", force: :cascade do |t|
+    t.string   "relationship"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "patients", force: :cascade do |t|
     t.string   "first_name"

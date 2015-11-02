@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-appointmenttype = Appointmenttype.create ([{apptype: 'Video Consult'}, {apptype: 'Phone Consult'}, {apptype: 'In Person Visit'}])
+patientrelationtype = Patientrelationtype.create ([{relationship: 'Primary Care'}, {relationship: 'Specialist'}, {relationship: 'Prior Appointment'}])

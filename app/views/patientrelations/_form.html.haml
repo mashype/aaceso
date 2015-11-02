@@ -8,7 +8,7 @@
 				- @patientrelation.errors.full_messages.each do |msg|
 					%li = msg
 	.panel-body
-		= f.input :relationtype, input_html: {class: 'form-control'}
+		= f.input :patientrelationtypes_id, input_html: {class: 'form-control'}
 		= f.input :provider_id, input_html: {class: 'form-control'}
 		= f.input :patient_id, input_html: {class: 'form-control'}
 
