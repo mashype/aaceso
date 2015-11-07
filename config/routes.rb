@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'welcome/patienthome' => 'welcome#patienthome'
   get 'welcome/providerhome' => 'welcome#providerhome'
   get 'welcome/healthplanhome' => 'welcome#healthplanhome'
+  get 'welcome/adminhome' => 'welcome#adminhome'
 
   resources :providers do
   	collection do
@@ -27,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   authenticated :user do
-  	root 'providers#index', as: "authenticated_root"
+  	root 'defineuser#index', as: "authenticated_root"
   end
 
   root 'welcome#index'		

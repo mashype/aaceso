@@ -1,0 +1,2 @@
+module DefineuserHelper
+end

@@ -1,0 +1,67 @@
+/* Begin Theme Settings */
+.site_info > .container > .row-fluid > * 
+{
+  height: 181px;
+  line-height: 181px;
+}
+
+.navbar .btn-navbar 
+{
+  margin-top: 28px
+}
+
+header 
+{
+  height: 56px;
+  min-height: 56px;
+}
+.navbar .nav > li > a,
+.nav .nav-search-box
+{
+  height: 56px;
+  line-height: 56px;
+}
+
+.navbar .nav > li > a.with_teaser > .half
+{
+  height: 28px;
+}
+
+header .navbar .nav > li > a > i 
+{
+  font-size: 21px;
+  line-height: 56px;
+  height: 56px;
+}
+
+.navbar .nav > li > a.with_teaser > i,
+.navbar .nav > li > a.menu_item_without_text > i
+{
+  font-size: 28px;
+}
+
+.navbar .nav > li > a.with_teaser > .half > span
+{
+  padding-top: 10px;
+}
+
+.navbar .nav > li > a.with_teaser > .teaser
+{
+  font-size: 12px;
+}
+
+header .navbar .nav .nav-search-box .search-form
+{
+  top: 0; /*-10px; */
+}
+
+header .company_logo.menu-logo,
+header .company_logo.menu-logo > a
+{
+  height: 56px;
+  line-height: 56px;
+}
+
+/* End Theme Settings */
+
+/* CSS Generator Execution Time: 0.00283002853394 seconds */
