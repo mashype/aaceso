@@ -19,18 +19,18 @@
 			#patients
 				%h2 Patients
 				%ul
-					- @provider.patientrelations.each do |patientrelation|
-						%li= link_to patientrelation.patient.last_name, patientrelation
+					- @provider.patients.each do |patient|
+						%li= link_to patient.last_name, patient
 
 		.col-md-6
-			#patients
+			#locations
 				%h2 Locations
 				%ul
 					- @provider.locations.each do |location|
 						%li= location.street_1
 
 		.col-md-6
-			#patients
+			#appointments
 				%h2 Appointments
 				%ul
 					- @provider.appointments.each do |appointment|

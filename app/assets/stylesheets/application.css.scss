@@ -30,6 +30,7 @@ $green: #33CD99;
 
 body {
 	background: rgb(235, 238, 243);
+	padding-top: 70px;
 }
 
 .main_content {
@@ -125,7 +126,7 @@ button, .button {
 	margin-bottom: 50px;
 }
 
-#provider_info, #name, #patients {
+#provider_info, #name, #patients, #locations, #appointments {
 	background: white;
 	@include box-shadow;
 	min-height: 360px;
@@ -168,7 +169,18 @@ button, .button {
 		padding-left: 18px;
 		li {
 			padding: 1em 0;
-			border-bottom: 1px solid #8A8A8A;
+			border-bottom: 1px solid #EAEAEA;
+		}
+	}
+}
+
+#providers, #appointments {
+	margin-bottom: 50px;
+	ul, ol {
+		padding-left: 18px;
+		li {
+			padding: 1em 0;
+			border-bottom: 1px solid #EAEAEA;
 		}
 	}
 }
