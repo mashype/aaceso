@@ -1,9 +1,35 @@
 %h1 PROVIDER HOMEPAGE
-%p Aesthetic meggings tousled semiotics kombucha venmo. Marfa drinking vinegar humblebrag pitchfork, retro meggings wayfarers slow-carb. Fashion axe viral shabby chic beard slow-carb, vegan humblebrag. Migas scenester selfies actually kickstarter squid. Vice kickstarter tote bag godard. Forage tofu hashtag, franzen mustache +1 lo-fi echo park sriracha shabby chic. Pour-over chillwave actually, kinfolk plaid lo-fi deep v health goth.
+%p Homepage for provider viewing their own existing dashboard
 
-%br
-= link_to "View Providers", '/providers', class: "btn btn-default" 
-= link_to "View Schedule", '/providers', class: "btn btn-default" 
-= link_to "View Patients", '/providers', class: "btn btn-default" 
-= link_to "Create New Provider", new_provider_path, class: "btn btn-default" 
+%h3 Providers
+%table.table.table-hover
+	%thead
+		%tr
+			%th Thumbnail
+			%th View Provider
+			%th Provider Name
+			%th Provider Specialty
+			%th{:colspan => "3"}
+	%tbody
+		- current_user.providers.each do |provider|
+			%tr
+				%td= image_tag provider.image.url(:thumb)
+				%td= link_to provider.npi, provider
+				%td= provider.name
+				%td= provider.specialty.specialty
+
+%h3 Patients
+%table.table.table-hover
+	%thead
+		%tr
+			%th View Patient
+			%th First Name
+			%th Last Name
+			%th{:colspan => "3"}
+	%tbody
+		- current_user.patients.each do |patient|
+			%tr
+				%td= link_to patient.member_id, patient
+				%td= patient.first_name
+				%td= patient.last_name
 

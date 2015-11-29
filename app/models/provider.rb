@@ -20,6 +20,6 @@ class Provider < ActiveRecord::Base
 	has_many :appointments
 
 	validates :name, :specialty, :image, presence: true
-	has_attached_file :image, styles: { :medium => "400x400#" }
+	has_attached_file :image, styles: { medium: "400x400#", small: "200x200#", thumb: "100x100" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 end
