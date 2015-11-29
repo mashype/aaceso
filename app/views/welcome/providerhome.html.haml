@@ -2,10 +2,11 @@
 %p Homepage for provider viewing their own existing dashboard
 
 %h3 Providers
+%p Listing of providers associated with this user
 %table.table.table-hover
 	%thead
 		%tr
-			%th Thumbnail
+			%th 
 			%th View Provider
 			%th Provider Name
 			%th Provider Specialty
@@ -13,23 +14,10 @@
 	%tbody
 		- current_user.providers.each do |provider|
 			%tr
-				%td= image_tag provider.image.url(:thumb)
+				%td= link_to (image_tag provider.image.url(:thumb)), provider
 				%td= link_to provider.npi, provider
 				%td= provider.name
 				%td= provider.specialty.specialty
 
-%h3 Patients
-%table.table.table-hover
-	%thead
-		%tr
-			%th View Patient
-			%th First Name
-			%th Last Name
-			%th{:colspan => "3"}
-	%tbody
-		- current_user.patients.each do |patient|
-			%tr
-				%td= link_to patient.member_id, patient
-				%td= patient.first_name
-				%td= patient.last_name
+= link_to "Add Provider", new_provider_path, class: "btn btn-default" 
 

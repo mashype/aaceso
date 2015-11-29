@@ -1,8 +1,35 @@
 %h1 PATIENT HOMEPAGE
+%p Homepage for patient viewing their own existing dashboard
 
-%br
+%h3 Patients
+%p Listing of providers associated with this user
+%table.table.table-hover
+	%thead
+		%tr
+			%th View Patient
+			%th First Name
+			%th Last Name
+			%th{:colspan => "3"}
+	%tbody
+		- current_user.patients.each do |patient|
+			%tr
+				%td= link_to patient.member_id, patient
+				%td= patient.first_name
+				%td= patient.last_name
+
+%h3 Appointments
+%p Listing of appointments associated with this user
+%table.table.table-hover
+	%tbody
+		- current_user.patients.each do |patient|
+			%tr
+				%td= link_to patient.member_id, patient
+				%td= patient.first_name
+				%td= patient.last_name
+
+
+				
 
 = link_to "My Providers", '/providers', class: "btn btn-default" 
-= link_to "My Schedule", '/providers', class: "btn btn-default" 
+= link_to "Create Appointment", new_appointment_path, class: "btn btn-default" 
 = link_to "My Pharmacy", '/providers', class: "btn btn-default" 
-= link_to "TBD", '/patients', class: "btn btn-default" 

@@ -18,10 +18,17 @@
 								%td= lic_expiration.license.state
 								%td= lic_expiration.expiration_year
 
-	.row
-		.col-md-12
-		#patients
-			%h2 Patients
+	/ Nav tabs
+	%ul.nav.nav-tabs{:role => "tablist"}
+		%li.active{:role => "presentation"}
+			%a{"aria-controls" => "patients", "data-toggle" => "tab", :href => "#patients", :role => "tab"} Patients
+		%li{:role => "presentation"}
+			%a{"aria-controls" => "appointments", "data-toggle" => "tab", :href => "#appointments", :role => "tab"} Appointments
+		%li{:role => "presentation"}
+			%a{"aria-controls" => "locations", "data-toggle" => "tab", :href => "#locations", :role => "tab"} Locations
+	/ Tab panes
+	.tab-content
+		#patients.tab-pane.active{:role => "tabpanel"} 
 			%table.table.table-hover
 				%thead
 					%tr
@@ -36,47 +43,38 @@
 							%td= patient.last_name
 							%td= patient.first_name
 
-	.row
-		.col-md-12
-			#locations
-				%h2 Locations
-				%table.table.table-hover
-					%thead
+		#appointments.tab-pane{:role => "tabpanel"} 
+			%table.table.table-hover
+				%thead
+					%tr
+						%th Patient Last Name
+						%th Patient First Name
+						%th Patient First Name
+						%th Appt Confirmed
+						%th Appt Type
+						%th{:colspan => "5"}
+				%tbody
+					- @provider.appointments.each do |appointment|
 						%tr
-							%th Address
-							%th City
-							%th State
-							%th{:colspan => "3"}
-					%tbody
-						- @provider.locations.each do |location|
-							%tr
-								%td= location.street_1
-								%td= location.city
-								%td= location.state
-
-	.row
-		.col-md-12
-			#appointments
-				%h2 Appointments
-				%table.table.table-hover
-					%thead
+							%td= link_to appointment.patient.last_name, appointment
+							%td= appointment.patient.last_name
+							%td= appointment.patient.first_name
+							%td= appointment.apptconfirmed
+							%td= appointment.appointmenttype.apptype
+		#locations.tab-pane{:role => "tabpanel"} 
+			%table.table.table-hover
+				%thead
+					%tr
+						%th Address
+						%th City
+						%th State
+						%th{:colspan => "3"}
+				%tbody
+					- @provider.locations.each do |location|
 						%tr
-							%th Patient Last Name
-							%th Patient First Name
-							%th Patient First Name
-							%th Appt Confirmed
-							%th Appt Type
-							%th{:colspan => "5"}
-					%tbody
-						- @provider.appointments.each do |appointment|
-							%tr
-								%td= link_to appointment.patient.last_name, appointment
-								%td= appointment.patient.last_name
-								%td= appointment.patient.first_name
-								%td= appointment.apptconfirmed
-								%td= appointment.appointmenttype.apptype
-	Owned By
-	= @provider.user.email
+							%td= location.street_1
+							%td= location.city
+							%td= location.state
 
 	.row
 		.col-md-12
