@@ -126,10 +126,10 @@ button, .button {
 	margin-bottom: 50px;
 }
 
-#provider_info, #name, #patients, #locations, #appointments {
+#provider_info, #name, #patients, #locations, #appointments, #licenses {
 	background: white;
 	@include box-shadow;
-	min-height: 360px;
+	min-height: 300px;
 	border-radius: 5px;
 	padding: 2em 8%;
 }
@@ -175,6 +175,17 @@ button, .button {
 }
 
 #providers, #appointments {
+	margin-bottom: 50px;
+	ul, ol {
+		padding-left: 18px;
+		li {
+			padding: 1em 0;
+			border-bottom: 1px solid #EAEAEA;
+		}
+	}
+}
+
+#providers, #licenses {
 	margin-bottom: 50px;
 	ul, ol {
 		padding-left: 18px;

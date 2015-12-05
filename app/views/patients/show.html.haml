@@ -1,7 +1,7 @@
 .main-content
 	#provider_top.row
 		.col-md-4
-			HOLD
+			=image_tag @patient.image.url(:medium), class: "provider_image"
 		.col-md-8
 			#provider_info
 				%h1= @patient.last_name
