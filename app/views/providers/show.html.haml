@@ -42,7 +42,7 @@
 							%td= link_to patient.member_id, patient
 							%td= patient.last_name
 							%td= patient.first_name
-
+			= link_to "New Patient", new_patient_path, class: "btn btn-default" 
 		#appointments.tab-pane{:role => "tabpanel"} 
 			%table.table.table-hover
 				%thead
@@ -63,17 +63,20 @@
 							%td= appointment.patient.first_name
 							%td= appointment.apptconfirmed
 							%td= appointment.appointmenttype.apptype
+			= link_to "New Appointment", new_appointment_path, class: "btn btn-default" 
 		#locations.tab-pane{:role => "tabpanel"} 
 			%table.table.table-hover
 				%thead
 					%tr
+						%th ID
 						%th Address
 						%th City
 						%th State
-						%th{:colspan => "3"}
+						%th{:colspan => "4"}
 				%tbody
 					- @provider.locations.each do |location|
 						%tr
+							%td= link_to location.id, edit_location_path
 							%td= location.street_1
 							%td= location.city
 							%td= location.state

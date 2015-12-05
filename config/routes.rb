@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   resources :licenses do
   end
 
+  resources :locations do
+  end
+
   resources :appointments do
   end
 
