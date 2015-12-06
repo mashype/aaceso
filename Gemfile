@@ -14,6 +14,9 @@ gem 'paperclip', '~> 4.3', '>= 4.3.1'
 gem 'simple_form', '~> 3.2'
 gem 'searchkick', '~> 0.9.1'
 gem 'haml', '~> 4.0', '>= 4.0.7'
+gem 'twitter', '~> 5.15'
+gem 'dotenv-rails', '~> 2.0', '>= 2.0.2'
+gem 'oauth', '~> 0.4.7'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
 gem 'sdoc', '~> 0.4.0', group: :doc
 

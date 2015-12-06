@@ -76,7 +76,7 @@
 				%tbody
 					- @provider.locations.each do |location|
 						%tr
-							%td= link_to location.id, edit_location_path
+							%td= link_to location.id, location
 							%td= location.street_1
 							%td= location.city
 							%td= location.state
@@ -91,6 +91,6 @@
 				%tbody
 					- @provider.licexpirations.each do |lic_expiration|
 						%tr
-							%td= link_to lic_expiration.id, edit_licexpiration_path
+							%td= link_to lic_expiration.id, lic_expiration
 							%td= lic_expiration.license.state
 							%td= lic_expiration.expiration_year

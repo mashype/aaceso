@@ -29,6 +29,14 @@
 		%h2 What are you waiting for?
 		%p Understand how we can help make your access to care that much better
 		%button= link_to "Sign Up Now", new_user_registration_path
+		%br
+
+%h2 AAceso Tweets
+%ul
+	- TwitterApi.our_public_tweets.each do |tweet|
+		%li= tweet.text
 
 %footer
 	%p &copy; AAceso Health 2015
+
+
